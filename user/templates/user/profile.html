@@ -1,0 +1,26 @@
+{% extends "split/base.html" %}
+{% block content %}
+<div class="content offset-lg-1 col-lg-10 col-md-12 col-sm-12" style="padding: 2vw 3vw 2vw 3vw;">
+    <h1>Stampsplitter Service Profile for {{ user.username }}</h1>
+    <hr>
+    <div class="container-fluid">
+        {% for r in sr reversed %}
+        <div class="row">
+            <div class="card col-lg-11 col-md-12 col-sm-12">
+                <h2>
+                    {{r.filename}}
+                </h2>
+                <small style="float:right;">
+                    {{r.date}}
+                </small>
+                <hr>
+                <h5>Filetype: <code>{{r.filetype}}</code></h5>
+                <!-- <h5>Service: <span style="color:#9818b8">{{r.service}}</span></h5> -->
+                <h5>Form Details:</h5>
+                <h6 style='margin-left:15px; color:rgb(168, 158, 158)'>{{r.timestamps|linebreaks}}</h6>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

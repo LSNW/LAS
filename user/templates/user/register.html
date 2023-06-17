@@ -1,0 +1,13 @@
+{% extends "split/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="register-form offset-lg-1 col-lg-10 col-md-12 col-sm-12">
+    <form method="POST">
+        {% csrf_token %}
+        <legend class="border-bottom mb-4">Sign Up and Keep Track of Your Usage</legend>
+        {{ form|crispy }}
+        <button type="submit">Register</button>
+    </form>
+    <div style="margin-top:415px;"></div>
+</div>
+{% endblock content %}

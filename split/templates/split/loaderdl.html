@@ -1,0 +1,23 @@
+{% extends "split/base.html" %}
+{% block content %}
+<div class="row content-buffer">
+    <div class="col-lg-1">
+        <div class="row justify-content-end">
+            <h1 class="vert-page-name col-12 d-none d-lg-block d-xxxl-none" style="margin:250px -16px;">Download</h1>
+        </div>
+    </div>
+    <div class="content col-lg-10 col-md-12 col-sm-12" style="height:500px">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div style="margin-top:50px" id=linkdlform></div>
+        </form>
+        <div style="margin-top:200px"></div>
+    </div>
+</div>
+<!-- React Files -->
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type="text/babel" src="..\..\static\split\linkDownload.js"></script>
+{% endblock content %}

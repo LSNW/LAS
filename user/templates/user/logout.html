@@ -1,0 +1,10 @@
+{% extends "split/base.html" %}
+{% block content %}
+<div class="content offset-lg-1 col-lg-10 col-md-12 col-sm-12">
+    <div class="logout">
+        <h4 style="margin-right:200px;">You have been logged out.</h4>
+        <hr>
+        <p><a href="{% url 'login' %}">Log in</a> again.</p>
+    </div>
+</div>
+{% endblock content %}

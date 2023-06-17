@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'split/main.css' %}">
+<!-- <script type="text/javascript" src="{% static 'split/displayFileName.js' %}"></script> -->
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lauss Audio Suite</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row nav-bar">
+      <ul>
+        <li class="first"><a href="{% url 'home' %}">LAUSS</a></li>
+        <li><a href="{% url 'split' %}">Split</a></li>
+        <!-- <li><a href=#>Convert</a></li> -->
+        <li><a href="{% url 'loaderdl' %}">Download</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li class="user-menu" style="margin-right:8vw;">
+          {% if not user.is_authenticated %}
+          <a href="{% url 'register' %}">Register</a>
+          {% else %}
+          <a href="{% url 'account_logout' %}">Log Out</a>
+          {% endif %}
+        </li>
+        <li class="user-menu">
+          {% if not user.is_authenticated %}
+          <a href="{% url 'login' %}">Log In</a>
+          {% else %}
+          <a href="{% url 'profile' %}">Profile</a>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+    {% block content %}{% endblock %}
+  </div>
+
+
+</body>
+
+</html>
